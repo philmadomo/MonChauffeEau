@@ -75,7 +75,7 @@ CREATE TABLE `MonChauffeEau` (
 
 LOCK TABLES `MonChauffeEau` WRITE;
 /*!40000 ALTER TABLE `MonChauffeEau` DISABLE KEYS */;
-INSERT INTO `MonChauffeEau` VALUES (1,1,'/home/philippe/gcerbuffer/gcerbset.sh led7_1','/home/philippe/gcerbuffer/gcerbset.sh led7_0','http://192.168.1.202:40405/stats/41/output/latest','GetWaterYesterday.php 0 40',2800,'2013-10-29 00:00:00',1,240,0,'2013-06-21 00:00:00','2013-09-21 00:00:00',180,400,1,1,300,90,31,0,0,7,0,11200,2,46,0,0,21,40,49,55,31,0,0,14,26,32,37,5,'GetWaterYesterday.php 0 60');
+INSERT INTO `MonChauffeEau` VALUES (1,1,'/home/user/gcerbuffer/gcerbset.sh led7_1','/home/user/gcerbuffer/gcerbset.sh led7_0','http://192.168.1.202:40405/stats/41/output/latest','GetWaterYesterday.php 0 40',2800,'2013-10-29 00:00:00',1,240,0,'2013-06-21 00:00:00','2013-09-21 00:00:00',180,400,1,1,300,90,31,0,0,7,0,11200,2,46,0,0,21,40,49,55,31,0,0,14,26,32,37,5,'GetWaterYesterday.php 0 60');
 /*!40000 ALTER TABLE `MonChauffeEau` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
