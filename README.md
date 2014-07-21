@@ -28,6 +28,7 @@ sudo cp -r /webinterface/* /var/www/MonChauffeEau/
 
 Edit the Crontab with "crontab -e"
 And Add this line:
+
 0 0 * * * /home/user/MonChauffeEau/MCEscript.sh
 
 Meaning that the Path to the MonChauffeEau Folder is "/home/user/" and the script is launched everyday at 00:00 !
