@@ -36,10 +36,21 @@ Meaning that the Path to the MonChauffeEau Folder is "/home/user/" and the scrip
 5) (Optional) Graph AutoGeneration
 You need JpGraph Php Lib !
 
+Set the StaticVAR (config) like this : 
+
+graphgen=1
+
+CmdLine for Water Consumption Graph, the graph will be generate into /tmp so you need to make a Link to this file into you images folder.
+
+sudo ln -s /tmp/dailygraph.jpg /var/www/MonChauffeEau/images/dailygraph.jpg
+
+
 
 Screenshot:
 ![alt tag](https://raw.github.com/philmadomo/MonChauffeEau/master/ScMonChauff.png)
 
-CmdLine for Water Consumption Graph:
-sudo ln -s /tmp/dailygraph.jpg /var/www/MonChauffeEau/images/dailygraph.jpg
 
+
+More Info on my blog !
+
+http://madomotique.wordpress.com/category/monchauffeeau/
