@@ -15,17 +15,22 @@ mysql> exit
 
 2) Inject the database structure
 
-TO DO...
+mysql --user=monchauff --password=monchauff MonChauffeEau < MonChauffeEau.sql
 
 
 3) Copy the Webinterface to apache Root directory (usually /var/www/)
 
-TO DO...
+mkdir /var/www/MonChauffeEau
+sudo cp -r /webinterface/* /var/www/MonChauffeEau/
 
 
 4) Write the Crontab rule
 
-TO DO...
+Edit the Crontab with "crontab -e"
+And Add this line:
+0 0 * * * /home/user/MonChauffeEau/MCEscript.sh
+
+Meaning that the Path to the MonChauffeEau Folder is "/home/user/" and the script is launched everyday at 00:00 !
 
 
 Screenshot:
