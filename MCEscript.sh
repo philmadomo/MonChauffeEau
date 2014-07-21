@@ -19,7 +19,9 @@ scriptdir=/home/philippe/MonChauffeEau
 logfile=/var/log/MonChauffeEau.log
 percenthotwater=40 #Debug : Hotwater usage in the global water usage
 suffixtosleep=m
+xplmessageon=1 #Send XPL Message ? You need Send.py file for Domogik
 pathtosendxpl=/home/philippe/domogik-0.1.0/src/domogik/xpl/bin
+graphgen=1
 #-----------------------------------------------
 
 function returnsleeptime(){
@@ -355,20 +357,21 @@ if [ "$(php5 -f $scriptdir/SetMCEcoldhotwater.php 0 $coldwaterusage $LastDayCons
         fi
         errorcode=45
 fi
-if [ "$(php5 -f $scriptdir/MCEcreateGraph.php)" = "1" ]; then
-        	if [ "$debugmode" = "1" ]; then
-        	        echo "Error SetMCEcreateGraph"
-        	fi
-        	errorcode=46
+if [ "$graphgen" = "1" ]; then
+	if [ "$(php5 -f $scriptdir/MCEcreateGraph.php)" = "1" ]; then
+	        	if [ "$debugmode" = "1" ]; then
+	        	        echo "Error SetMCEcreateGraph"
+	        	fi
+	        	errorcode=46
+	fi
 fi
 
 
 echo "$(date +'%D %T'): Mode: $WaterHeaterMode ColdWaterUsage: $coldwaterusage HotWaterUsage: $LastDayConso TotalWaterUsageWithoutHeating: $LastDaysConsoWithoutHeating NumberDaysWithoutHeating: $NumberDaysWithoutHeating HeatingTime: $nowheatingtime PowerUsage: $nowwatthour (ErrorCode: $errorcode)" >> $logfile
 #Send XPL Messages
 
-if [ "$debugmode" = "0" ]; then
+if [[ "$debugmode" = "0" ]] && [[ "$xplmessageon" = "1" ]]; then
 	sudo python $pathtosendxpl/send.py xpl-trig sensor.basic "device=coldwaterusage,current=$coldwaterusage,type=counter"
 	sudo python $pathtosendxpl/send.py xpl-trig sensor.basic "device=hotwaterusage,current=$LastDayConso,type=counter"
 	sudo python $pathtosendxpl/send.py xpl-trig sensor.basic "device=heatingtime,current=$nowheatingtime,type=count"
-	#sudo python $pathtosendxpl/send.py xpl-trig sensor.basic "device=whpowerusage,current=$nowwatthour,type=count"
 fi

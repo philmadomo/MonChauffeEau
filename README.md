@@ -32,6 +32,9 @@ And Add this line:
 
 Meaning that the Path to the MonChauffeEau Folder is "/home/user/" and the script is launched everyday at 00:00 !
 
+5) (Optional) Graph AutoGeneration
+You need JpGraph Php Lib !
+
 
 Screenshot:
 ![alt tag](https://raw.github.com/philmadomo/MonChauffeEau/master/ScMonChauff.png)
